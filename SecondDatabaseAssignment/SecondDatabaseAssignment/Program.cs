@@ -120,6 +120,7 @@ namespace SecondDatabaseAssignment
             cmd.ExecuteNonQuery();
             cn.Close();
 
+            Console.WriteLine("=======================================");
             Console.WriteLine("Product added!");
             Console.WriteLine("=======================================");
         }
