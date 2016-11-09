@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace SecondDatabaseAssignment
 {
     class Program
     {
+        static string cns = ConfigurationManager.ConnectionStrings["CPContext"].ConnectionString;
         static void Main(string[] args)
         {
             int i = 0;
@@ -79,7 +81,7 @@ namespace SecondDatabaseAssignment
             Console.Write("Input the city: ");
             string customerCity = Console.ReadLine();
 
-            string cns = @"Server=(localdb)\MSSQLLocalDB;Database=NORTHWND;Trusted_Connection=Yes";
+            
             SqlConnection cn = new SqlConnection(cns);
             cn.Open();
             SqlCommand cmd = cn.CreateCommand();
@@ -108,7 +110,6 @@ namespace SecondDatabaseAssignment
             Console.Write("Is the product discontinued? (0 or 1): ");
             string discontinued = Console.ReadLine();
 
-            string cns = @"Server=(localdb)\MSSQLLocalDB;Database=NORTHWND;Trusted_Connection=Yes";
             SqlConnection cn = new SqlConnection(cns);
             cn.Open();
             SqlCommand cmd = cn.CreateCommand();
@@ -132,7 +133,6 @@ namespace SecondDatabaseAssignment
             Console.Write("Input how much you would like to add to the price: ");
             int priceChange = int.Parse(Console.ReadLine());
 
-            string cns = @"Server=(localdb)\MSSQLLocalDB;Database=NORTHWND;Trusted_Connection=Yes";
             SqlConnection cn = new SqlConnection(cns);
             cn.Open();
             SqlCommand cmd = cn.CreateCommand();
